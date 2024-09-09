@@ -16,9 +16,9 @@ export const contactsRoute: Router = Router();
 contactsRoute.post("/contacts", postContact);
 contactsRoute.post("/contacts/delete/batch", deleteBatchContacts);
 //GET
-contactsRoute.get("/contacts", getContacts);
+contactsRoute.get("/contacts/search/", getContactByEmail);
 contactsRoute.get("/contacts/:id", getContactById);
-contactsRoute.get("/contacts/search/email", getContactByEmail);
+contactsRoute.get("/contacts", getContacts);
 //PUT PATCH
 contactsRoute.patch("/contacts/:id", updateContact);
 //DELETE

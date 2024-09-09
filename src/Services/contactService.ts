@@ -98,6 +98,9 @@ export const getContactByEmail = async (email: string) => {
         headers: {
           Authorization: `Bearer ${process.env.HUBSPOT_API_KEY}`,
         },
+        params: {
+          properties: "firstname,lastname,email,phone",
+        },
       }
     );
     return {
