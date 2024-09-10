@@ -1,18 +1,9 @@
-import express, { Request, Response } from "express";
+import app from "./app";
 import dotenv from "dotenv";
-import { routes } from "./Routes";
-import cors from "cors";
 
 dotenv.config();
-const app = express();
+
 const PORT = process.env.PORT;
-
-app.use(cors());
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use("/", routes);
 
 app
   .listen(PORT, () => {
