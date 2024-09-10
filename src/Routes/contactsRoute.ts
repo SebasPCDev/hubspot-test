@@ -7,7 +7,10 @@ import {
   postContact,
   updateContact,
 } from "@/Controllers";
-import { validateBodyContact } from "@/middlewares/validationBody";
+import {
+  validateBodyContact,
+  validateBodyUpdateContact,
+} from "@/middlewares/validationBody";
 
 import { Router } from "express";
 
@@ -21,6 +24,6 @@ contactsRoute.get("/contacts/search/", getContactByEmail);
 contactsRoute.get("/contacts/:id", getContactById);
 contactsRoute.get("/contacts", getContacts);
 //PUT PATCH
-contactsRoute.patch("/contacts/:id", updateContact);
+contactsRoute.patch("/contacts/:id", validateBodyUpdateContact, updateContact);
 //DELETE
 contactsRoute.delete("/contacts/:id", deleteContact);
