@@ -7,13 +7,14 @@ import {
   postContact,
   updateContact,
 } from "@/Controllers";
+import { validateBodyContact } from "@/middlewares/validationBody";
 
 import { Router } from "express";
 
 export const contactsRoute: Router = Router();
 
 //POST
-contactsRoute.post("/contacts", postContact);
+contactsRoute.post("/contacts", validateBodyContact, postContact);
 contactsRoute.post("/contacts/delete/batch", deleteBatchContacts);
 //GET
 contactsRoute.get("/contacts/search/", getContactByEmail);
